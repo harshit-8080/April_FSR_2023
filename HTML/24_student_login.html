@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-container{
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 500px;
+            background-color: mediumslateblue;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .form-container:hover{
+            background-color: yellow;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            margin-top:6px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            /* box-sizing:  will be discussed; */
+        }
+        label{
+            font-size: 20px;
+        }
+        #submit{
+            background-color: mediumaquamarine;
+            color: white;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        #submit:hover{
+            background-color: red;
+        }
+    </style>    
+</head>
+<body>
+    
+
+    <main>
+
+        <div class="form-container">
+
+            <h1 style="text-align: center; font-size: 30px;">Student Signup Form</h1>
+
+            <form action="">
+
+                <label for="firstname">FirstName:</label>
+                <input type="text" name="" id="firstname" placeholder="firstname">
+
+                <label for="lastname">LastName:</label>
+                <input type="text" name="" id="lastname" placeholder="lastname">
+
+                <label for="email">Email:</label>
+                <input type="email" name="" id="email" placeholder="email">
+
+                <label for="Password">Password:</label>
+                <input type="password" name="" id="Password" placeholder="Password">
+
+                <label for="ConfirmPassword">Confirm Password:</label>
+                <input type="password" name="" id="ConfirmPassword" placeholder="ConfirmPassword">
+
+                <input id="submit" type="submit" value="Signup">
+
+
+            </form>
+        </div>
+
+    </main>
+
+
+</body>
+</html>
