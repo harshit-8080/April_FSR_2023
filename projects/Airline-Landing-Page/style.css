@@ -1,0 +1,92 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-self: start;
+    gap:100px;
+    align-items: center;
+}
+
+header nav ul img {
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+ul li a:hover{
+    color: rgb(94, 69, 218);
+}
+
+button {
+    color: white;
+    background-color: rgb(90, 64, 237);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(69, 44, 185);
+}
+
+/* main section */
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.left-section h1  {
+    margin-bottom: 10px;
+}
+
+.left-section p{
+    font-size: 20px;
+}
+
+.right-section img {
+    padding: 10px 100px;
+}
+
+.footer {
+    margin-top: 130px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer div input[type="email"] {
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px 20px;
+    margin-right: 20px;
+}
