@@ -74,7 +74,7 @@ button:hover {
 }
 
 .right-section img {
-    padding: 10px 100px;
+    padding-left: 150px;
 }
 
 .footer {
@@ -89,4 +89,6 @@ button:hover {
     border-bottom: 2px solid black;
     padding: 10px 20px;
     margin-right: 20px;
+    outline: none;
+    background: transparent;
 }
