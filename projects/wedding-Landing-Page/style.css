@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+header{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("https://images.pexels.com/photos/3916017/pexels-photo-3916017.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-position: center;
+    background-size: cover;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+}
+.logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.nav-links li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 70px;
+    font-size: 24px;
+
+}
+
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+}
+.nav-links li a:hover{
+    color: mediumslateblue;
+}
+
+.register-btn {
+    background-color: white;
+    color: black;
+    padding: 7px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+.register-btn:hover {
+    background-color: mediumslateblue;
+    color: white;
+}
+
+.container {
+    padding: 0 8%;
+}
+
+.container h1 {
+    font-size: 64px;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 17%;
+}
+.search{
+    background-color: white;
+    width: 60%;
+    margin: 50px auto;
+    padding: 15px 15px 15px 30px;
+    border-radius: 50px;
+}
+.search form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search form input {
+    display: block;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+}
+
+label {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+label:hover {
+    color: mediumslateblue;
+}
+
+.check-btn{
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.wedding-gallery {
+    width: 80%;
+    margin: 20px auto;
+}
+.wedding-gallery img {
+    height: 200px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+.wedding-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
