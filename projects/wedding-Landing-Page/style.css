@@ -9,7 +9,7 @@
 header{
     width: 100%;
     min-height: 100vh;
-    background-image: url("https://images.pexels.com/photos/3916017/pexels-photo-3916017.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-image:  linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0,0.7)), url("https://images.pexels.com/photos/3916017/pexels-photo-3916017.jpeg?auto=compress&cs=tinysrgb&w=1600");
     background-position: center;
     background-size: cover;
 }
