@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: rgb(138, 190, 173);
+            animation-name: makeboxbigger;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            position: relative; 
+
+            /* animation-timing-function: ease; by default */
+
+            /* animation-timing-function: linear;  same speed */
+            /* animation-timing-function: ease-in;  slow start*/
+            /* animation-timing-function: ease-out; slow end */
+
+            animation-timing-function: ease-in-out;
+            
+        }
+
+        /* animation code */
+        @keyframes makeboxbigger {
+
+            0% {
+                background-color: red;
+                top: 0px;
+                left: 0px;
+                
+            }
+
+            25%{
+                background-color: green;
+                top: 0px;
+                left:1400px;
+               
+            }
+
+            50%{
+                background-color: blue;
+                top:750px;
+                left:1400px;
+                
+            }
+
+            75%{
+
+                background-color:orange;
+                top:750px;
+                left: 0px;
+                
+            }
+
+            100%{
+
+                background-color: black;
+                top: 0px;
+                left: 0px;
+                
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
