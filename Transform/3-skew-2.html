@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 200px;
+            border-radius: 100%;
+            background-color: mediumslateblue;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 400px auto;
+            animation-name: moveBox;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+
+        @keyframes moveBox {
+
+            from {
+                transform: skew(10deg, 180deg);
+                background-color: red;
+            }
+            to {
+                transform: skew(-10deg -180deg );
+                background-color: blue;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div></div>
+</body>
+</html>

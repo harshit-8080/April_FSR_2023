@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            background-color: red;
+            margin: 150px auto;
+            animation-name: makecircle;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes makecircle {
+
+            0% {
+                background-color: green;
+                height: 300px;
+                width: 300px;
+                border-radius: 100%;
+            }
+            50% {
+                background-color: yellow;
+                height: 500px;
+                width: 500px;
+                border-radius: 100%;
+            }
+            100% {
+                background-color: blue;
+                height: 700px;
+                width: 700px;
+                border-radius: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+</body>
+</html>
