@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height:100px;
+    background-color: mediumslateblue;
+}
+
+button{
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 20px;
+
+}
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+main .movie-card {
+    width: 300px;
+    height: 600px;
+    margin: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.movie-card .img img {
+    width: 100%;
+    height: 280px;
+} 
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.meta-info span {
+    background-color: mediumspringgreen;
+    padding: 0.6rem;
+    border-radius: 50px;
+}
+.overview p {
+    padding: 1.3rem;
+}
