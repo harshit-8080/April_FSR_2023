@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            height: 900px;
+            /* border: 1px solid black; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .box1 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: red;
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+        }
+
+        .box2 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: green;
+            grid-row-start:2;
+            grid-row-end: 3; 
+
+        }
+
+        .box3 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: blue;
+            
+            
+        }
+
+        .box4 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: yellow;
+
+        }
+
+        .box5 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: black;
+            /* grid-column-start: 2;
+            grid-column-end: 4; */
+        }
+
+        .box6 {
+            /* height: 100px;
+            width: 100px; */
+            background-color: gray
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box1">
+        </div>
+        <div class="box2">
+
+        </div>
+        <div class="box3">
+
+        </div>
+        <div class="box4">
+
+        </div>
+        <div class="box5">
+
+        </div>
+        <div class="box6">
+
+        </div>
+    </div>
+</body>
+
+</html>
