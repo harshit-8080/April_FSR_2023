@@ -1,0 +1,21 @@
+let name = "harshit";
+
+let age = 24;
+
+let salary = 100.4;
+
+let married = false;
+
+//  typeof will tell what is the type of your content ( datatypes )
+
+console.log(typeof name);
+
+console.log(typeof age);
+
+console.log(typeof salary);
+
+console.log(typeof married);
+
+let v = "H";
+
+console.log(typeof v);
