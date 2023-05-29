@@ -31,3 +31,10 @@ switch (name + "raj") {
   default:
     console.log("Try again with correct day");
 }
+
+var mStr = "  Hello  World ";
+
+let x = mStr.trim();
+
+console.log(mStr); // "  Hello  World "
+console.log(x); // "Hello  World"
