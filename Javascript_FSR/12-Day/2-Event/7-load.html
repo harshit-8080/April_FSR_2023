@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img id="img" src="https://cdn.pixabay.com/photo/2016/11/29/12/13/fence-1869401_1281.jpg" alt="">
+
+    <script>
+
+        let img = document.getElementById("img");
+
+        img.addEventListener("load", function() {
+            console.log("image loaded succesfully...")
+        })
+
+        img.addEventListener("error", function() {
+            let h1 = document.createElement("h1");
+            h1.innerText = "Image not loaded..."
+            document.body.appendChild(h1);
+        })
+    </script>
+
+</body>
+</html>

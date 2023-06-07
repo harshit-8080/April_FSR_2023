@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+           height: 300px;
+           width: 400px;
+           overflow: scroll;   
+           border:  1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="d1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quis, voluptatum placeat nam expedita ut distinctio suscipit nihil repudiandae hic, dolorem tempore ratione deserunt fugit veritatis praesentium est corrupti magnam consequatur, earum eligendi alias itaque adipisci? Vel nemo, mollitia, porro quod provident delectus perferendis quis voluptates, ipsum beatae commodi totam? Magni assumenda sint voluptates dolore. Dolorum, necessitatibus. Sapiente minus veniam fuga, nostrum cumque aliquid dolorum, reprehenderit ex voluptatibus repellendus sed. Vitae minima, unde culpa porro repellendus, nostrum necessitatibus beatae labore, veniam corrupti molestias velit esse dignissimos distinctio atque ducimus tenetur nihil laudantium alias quasi illum voluptatum. Itaque est inventore nulla ipsa consectetur error saepe eaque sunt, consequatur dicta id quisquam officia quo vero blanditiis laboriosam iste officiis voluptate voluptatem odit, ab maxime eum rem. Accusamus rem quasi nemo est alias laudantium harum. Ipsa animi facilis culpa harum quos aut explicabo cum excepturi, ab corrupti consequuntur veritatis aspernatur. Fugit maxime rerum officia dolor ea iste, explicabo ipsum repellat sit inventore? Iusto, repudiandae? Rem, laborum ullam soluta possimus expedita perspiciatis commodi sapiente cumque illum eius omnis obcaecati. Tenetur ex deserunt ea molestiae quaerat autem quis quidem unde quae ipsum sit maxime, eaque et, repudiandae quisquam exercitationem minus saepe perferendis minima nobis facilis adipisci sapiente. Quia quod, magni nihil consequuntur vero tempore itaque debitis eius quam aliquid fuga sapiente harum corrupti hic repellat iste accusantium? Incidunt ex aliquid nulla debitis, aut quaerat distinctio eaque asperiores tenetur aspernatur ea, commodi optio quas nobis corporis. Dolores illo cupiditate autem odit nesciunt magnam laudantium adipisci corrupti tempore, odio dolorem quis mollitia sunt ad quia eum est. Rem, eum. Perspiciatis distinctio quibusdam animi delectus amet doloremque optio harum, cumque incidunt provident corrupti, quia aperiam earum reiciendis! Vero at impedit perferendis eos, quae sequi quaerat illum porro expedita accusantium id officiis est minima nisi libero aperiam facere unde velit inventore maiores laudantium tenetur possimus a. Cupiditate sunt suscipit fugiat minus quam sed minima, repellendus magnam a ad? Odio accusantium quas ullam earum esse dolore tenetur. Ab eveniet magni cupiditate libero impedit debitis voluptate corrupti voluptas temporibus illo veniam ad error odit beatae enim tenetur molestiae fuga, ipsa qui, vel rem reprehenderit animi fugiat. Aliquam iste deserunt dicta quae est, earum, enim iure debitis rerum dolore praesentium. Neque aliquid odio eum eius facere asperiores fugiat est placeat dolorem. Dolore non voluptatem reprehenderit accusantium. Voluptas error blanditiis eius consectetur. Eos temporibus soluta exercitationem dolor enim? Rem minima consectetur odio officia enim molestias qui adipisci a labore excepturi possimus veniam rerum suscipit libero odit cumque, alias eligendi placeat tenetur quo! Animi, velit. Harum, natus quia cupiditate sunt quas nobis. Eos ex tempore doloribus quae, ipsum delectus eum repellat rerum quas facere? Accusantium, eum eligendi nostrum assumenda blanditiis nobis earum ut modi illum enim porro minus, quidem sit dolores est autem eveniet, rem nemo dolorem amet excepturi iusto ea. Commodi, facere hic cumque aperiam consequatur voluptatibus adipisci modi tempore at aut facilis magnam saepe distinctio rerum quis delectus unde, omnis ea aliquid dicta eos quod excepturi ipsam! Delectus obcaecati quo voluptas quaerat.
+    </div>
+
+
+    <script>
+        let div  = document.getElementById("d1");
+
+        div.addEventListener("scroll", function() {
+            console.log("i'm scrolling......", div.scrollTop)
+
+            if(div.scrollTop > 362 && div.scrollTop < 370) {
+                let h1 = document.createElement("h1");
+                console.log("hduhskjd")
+                h1.innerText = "You are in Middle";
+                document.body.appendChild(h1);
+
+
+            }
+        })
+    </script>
+</body>
+</html>
