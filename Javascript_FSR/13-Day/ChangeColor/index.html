@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: mediumslateblue;
+            color: white;
+            border: none;
+            font-size: 16px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn">Change Color</button>
+
+    <script>
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("mouseover", function() {
+
+            const colors = ["red", "blue", "green", "purple", "orange", "yellow", "black", "violet"];
+
+            let index = Math.floor(Math.random() * colors.length)
+
+            document.body.style.backgroundColor = colors[index];
+        })
+
+        btn.addEventListener("mouseout", function() {
+            document.body.style.backgroundColor = "white";
+        })
+    </script>
+</body>
+
+</html>
