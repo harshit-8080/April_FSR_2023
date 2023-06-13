@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Set Data to Local Storage</button>
+    <button id="btn2">Print from Local Storage</button>
+    <button id="btn3">Remove city from Session Storage</button>
+
+    
+    <script>
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function(){
+        
+            localStorage.setItem("name", "Rini")
+            localStorage.setItem("country", "India")
+            localStorage.setItem("city", "JBL")
+
+        })
+
+
+        let btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click", function(){
+            
+            const name = localStorage.getItem("name");
+            const country = localStorage.getItem("country")
+            const city = localStorage.getItem("city")
+
+            console.log(name, city, country);
+
+        })
+
+
+      let btn3 = document.getElementById("btn3");
+
+      btn3.addEventListener("click", function(){
+        
+          localStorage.removeItem("city");
+
+      })
+    </script>
+</body>
+</html>
