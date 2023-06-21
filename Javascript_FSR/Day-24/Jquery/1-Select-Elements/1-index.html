@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        img{
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+            position: relative;
+            left: 30%;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, explicabo!</p>
+
+    <img id="pic" src="https://image.tmdb.org/t/p/w500/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg" alt="">
+    <script>
+
+        $('#p1').text("I have changed the text of paragraph")
+
+        $("#p1").css("color", "red")
+
+        $("#p1").css("font-size", "32px")
+
+        $("#p1").css("background-color", "black")
+
+        $("#p1").css("padding", "20px")
+
+
+        // setTimeout(function(){
+        //     $("#pic").hide();
+        // },2000)
+
+
+        let flag = true;
+        setInterval(function(){
+            if(flag){
+                $("#pic").show();
+                flag = false
+            }
+            else{
+                $("#pic").hide();
+                flag = true;
+            }
+           
+        }, 500)
+
+    </script>
+</body>
+</html>

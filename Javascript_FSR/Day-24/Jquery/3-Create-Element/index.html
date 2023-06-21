@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .p1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>My Company LOGO</h1>
+
+    <script>
+        //  let p  = document.createElement("p")
+        //  p.innerText = "Paragaph is added";
+        //  document.body.append(p)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        let p = $("<p>")
+        p.text("paragraph is added using Jquery")
+        p.addClass("p1")
+        $('body').append(p)
+
+        let newList = $("<ul>");
+
+        let li1 = $("<li>").text("item1")
+        let li2 = $("<li>").text("item2")
+        let li3 = $("<li>").text("item3")
+
+        newList.append(li1, li2, li3);
+
+        $("body").append(newList);
+
+    </script>
+</body>
+</html>
