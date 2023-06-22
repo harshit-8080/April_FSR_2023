@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+    
+    <h1 id="heading">My Company LOGO</h1>
+
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>parapgraph</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, nisi.</p>
+
+    <button class="btn">button 1</button>
+    <button class="btn">button 2</button>
+    <button class="btn">button 3</button>
+
+    <script>
+        console.log("This is my first message")
+
+        // let h1 = document.getElementById("heading");
+        // console.log(h1.innerText);
+
+
+        let h1 = $("#heading")  // selected using id.
+        console.log(h1.text());
+
+
+        let pTags = $("p")  // selected using tagName
+        console.log("line 30 => ", pTags[2].textContent)
+
+
+        let buttons = $(".btn"); // selected using className
+        console.log("line 39 ==> ", buttons[1].textContent)
+
+    </script>
+</body>
+</html>

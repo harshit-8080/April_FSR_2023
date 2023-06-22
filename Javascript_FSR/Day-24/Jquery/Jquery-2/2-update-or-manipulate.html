@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1 id="heading">Pavan</h1>
+
+
+    <img id="pic" src="https://t4.ftcdn.net/jpg/05/41/51/61/360_F_541516167_XcpIrRoKCv33PCrkglwK0skhdC4tylm6.jpg"
+        alt="">
+
+    <script>
+
+        console.log($("#heading").text()); // this will hold old value.
+
+        $("#heading").text("Najmin") // Here we are updating our h1.
+
+        console.log($("#heading").text()); // this will be printing new value.
+
+        $("#heading").css("color", "red");
+        $("#heading").css("background-color", "green");
+        $("#heading").css("padding", "30px");
+
+
+        let flag = true;
+        setInterval(function () {
+            if (flag) {
+                $("#pic").show();
+                flag = false
+            }
+            else {
+                $("#pic").hide();
+                flag = true
+            }
+        }, 700)
+
+
+    </script>
+
+
+</body>
+
+</html>
