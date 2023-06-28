@@ -1,0 +1,135 @@
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBS4y_lSf1xxDnOSMkOU1G46G7nbTPot6PJPFkjzfUnIy-HR9Uhxa5s74ILckv6AV2fv4&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 80%;
+    padding: 2rem;
+    margin: 100px auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 52px;
+}
+
+.player {
+    margin-top: 50px;
+}
+
+/* audio {
+    width: 50%;
+    margin-top: 10px;
+    background-color: mediumaquamarine;
+    padding: 5px;
+    border-radius: 15px;
+    outline: none;
+  } */
+/* 
+  audio {
+    width: 500px;
+    height: 50px;
+    background-color: greenyellow;
+    color: #333333;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid green;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } */
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.audio-controls button {
+    background-color: mediumpurple;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 17px;
+    transition: background-color 0.3s ease;
+}
+
+.audio-controls button:hover {
+    background-color: rgb(115, 71, 203);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fav {
+    margin-left: 48%;
+    border: none;
+    cursor: pointer;
+}
+
+.fav:hover {
+    background-color: black;
+}
+
+li {
+    cursor: pointer;
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: mediumaquamarine;
+    color: white;
+    transition: background-color 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+li:hover {
+    background-color: white;
+    color: black;
+}
+
+li.active {
+    background-color: #ccc;
+}
+
+li.active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+li span {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.fav {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
