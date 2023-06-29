@@ -1,8 +1,24 @@
 body {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBS4y_lSf1xxDnOSMkOU1G46G7nbTPot6PJPFkjzfUnIy-HR9Uhxa5s74ILckv6AV2fv4&usqp=CAU");
+    /* background-image: url("https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif"); */
     background-repeat: no-repeat;
     background-size: cover;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
 }
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 .container {
     width: 80%;
@@ -132,4 +148,43 @@ li span {
     border-radius: 20px;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+#popup-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#popup-content{
+    background-color: mediumaquamarine;
+    padding: 30px;
+    border-radius: 20px;
+    animation-name: pop-anm;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pop-anm {
+    from{
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
+
+#popup-close {
+    border: none;
+    background-color: mediumslateblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
 }
