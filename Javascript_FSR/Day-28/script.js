@@ -89,19 +89,21 @@ fav.forEach(function (button) {
 let popupBtn = document.getElementById("popup-btn");
 let popupOverlay = document.getElementById("popup-overlay");
 let popupContent = document.getElementById("popup-content");
+let songList = document.getElementById("song-list");
 
 popupBtn.addEventListener("click", function () {
   popupOverlay.style.display = "flex";
   let keys = Object.keys(localStorage);
   // console.log(keys);
 
+  songList.innerHTML = "";
+
   keys.forEach((key) => {
     let songName = localStorage.getItem(key);
-    console.log(songName);
 
     let p = document.createElement("p");
     p.innerText = songName;
-    popupContent.appendChild(p); //TODO: Students WIll FIX IT......
+    songList.appendChild(p); //TODO: Students WIll FIX IT......
   });
 });
 
