@@ -15,15 +15,19 @@ Car.prototype.printInfo = function () {
   console.log("Price == ", this.price);
 };
 
-// console.log(Car.prototype); // { printInfo: [Function (anonymous)] }
+Car.prototype.greet = function () {
+  console.log("HappY Friday");
+};
+
+alto.__proto__.f1 = function () {
+  console.log("Inside f1 function..");
+};
 
 // alto.printInfo();
 // bmw5.printInfo();
 
-// if (Car.prototype == bmw5.__proto__) {
-//   console.log("Yes They Are Same --> Unamed Object ");
-// }
+bmw5.f1(); //
 
-if (Car.prototype.constructor == bmw5.__proto__.constructor) {
-  console.log("Yes They Are Same --> ");
+if (Car.prototype == bmw5.__proto__) {
+  console.log("Yes They Are Same --> Unamed Object ");
 }
