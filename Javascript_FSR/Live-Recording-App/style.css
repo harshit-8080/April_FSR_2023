@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.video-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+.action-container {
+    position: absolute;
+    color: white;
+
+    height: 13rem;
+    width: 5rem;
+
+    top: 20rem;
+    right: 5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.action-container>* {
+    /* background-color: coral; */
+    width: 100%;
+    height: 5rem;
+
+    border-radius: 50%;
+    border: 5px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.record-btn {
+    background-color: red;
+
+    height: 3rem;
+    width: 3rem;
+
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.capture-btn {
+    background-color: white;
+
+    height: 3rem;
+    width: 3rem;
+
+    border-radius: 50%;
+}
+
+.record-anm {
+    animation-name: record-anm;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes record-anm {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.timer-container {
+    font-size: 2rem;
+    color: red;
+    display: inline-block;
+    position: absolute;
+    top: 10rem;
+    right:3rem
+}
