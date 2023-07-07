@@ -28,6 +28,7 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .action-container>* {
@@ -60,6 +61,7 @@ video {
     width: 3rem;
 
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .record-anm {
@@ -78,11 +80,80 @@ video {
     }
 }
 
+.capture-anm {
+    animation-name: record-anm;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes record-anm {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
 .timer-container {
     font-size: 2rem;
     color: red;
     display: inline-block;
     position: absolute;
     top: 10rem;
-    right:3rem
+    right:3rem;
+
+    z-index: 2;
+}
+
+.filter-container {
+    height: 16rem;
+    width: 5rem;
+    position: absolute;
+    top: calc((100vh - 16rem)/2);
+    left:3rem;
+
+    z-index: 2;
+}
+
+.filter{
+    height: 4rem;
+    background-image: url("https://www.photoroom.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F191576%2F1048x786%2Fa14e67b534%2Fwhite-background-1.png&w=3840&q=75");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: cover;
+    border: 1px solid black;
+    background-blend-mode: color-burn;
+
+    cursor: pointer;
+}
+
+.red{
+    background-color:rgba(255, 0, 0, 0.34);
+}
+.blue{
+    background-color: rgba(0, 0, 255, 0.426);
+}
+.yellow{
+    background-color: rgba(255, 255, 0, 0.474);
+}
+.green{
+    background-color: rgba(0, 128, 0, 0.467);
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+
+.filter-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: transparent;
+
+    z-index: 1;
 }

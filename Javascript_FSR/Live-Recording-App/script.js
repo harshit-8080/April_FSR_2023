@@ -1,5 +1,6 @@
 let video = document.querySelector("video");
 let recordBtn = document.querySelector(".record-btn");
+let captureBtn = document.querySelector(".capture-btn");
 
 //! Get video and audio Access
 let x = navigator.mediaDevices.getUserMedia({ video: true, audio: true });
@@ -7,6 +8,7 @@ let x = navigator.mediaDevices.getUserMedia({ video: true, audio: true });
 let recorder;
 let recorderFlag = false;
 let videoInChunk = [];
+let filterColor = "transparent";
 
 x.then((stream) => {
   //! Display The Video Streaming on Video Tag (On Screen)
@@ -52,6 +54,35 @@ recordBtn.addEventListener("click", () => {
   }
 });
 
+captureBtn.addEventListener("click", () => {
+  captureBtn.classList.add("capture-anm");
+
+  const canvas = document.createElement("canvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // Apply Filter on Canvas
+  ctx.fillStyle = filterColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Apply Filter on Canvas
+
+  //Getting URL for Captured Image
+  let screenShotURL = canvas.toDataURL();
+
+  // Download The Image
+  let a = document.createElement("a");
+  a.href = screenShotURL;
+  a.download = `screenshot_capture_${new Date()}.png`;
+  a.click();
+
+  setTimeout(() => {
+    captureBtn.classList.remove("capture-anm");
+  }, 1000);
+});
+
 //! Live Timer Code
 let counter = 0;
 let timer = document.querySelector(".timer");
@@ -83,3 +114,16 @@ function stopTimer() {
   clearInterval(clear);
   timer.innerText = "00:00:00";
 }
+
+// Change bgc of filter-layer onClick of filter classes...
+
+let filterLayer = document.querySelector(".filter-layer");
+let filters = document.querySelectorAll(".filter");
+
+filters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    let bgc = getComputedStyle(filter).getPropertyValue("background-color");
+    filterLayer.style.backgroundColor = bgc;
+    filterColor = bgc;
+  });
+});
