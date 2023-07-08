@@ -28,14 +28,34 @@ x.then((stream) => {
 
   //! Event to handle when recording is stopped
   recorder.addEventListener("stop", () => {
-    let videoData = new Blob(videoInChunk, { type: "video/mp4" });
-    let videoURL = URL.createObjectURL(videoData);
+    let blob = new Blob(videoInChunk, { type: "video/mp4" });
+    // let videoURL = URL.createObjectURL(videoData);
 
-    // Code to Download the Recorded Video..
-    let a = document.createElement("a");
-    a.href = videoURL;
-    a.download = `live_streaming_record_${new Date()}.mp4`;
-    a.click();
+    // // Code to Download the Recorded Video..
+    // let a = document.createElement("a");
+    // a.href = videoURL;
+    // a.download = `live_streaming_record_${new Date()}.mp4`;
+    // a.click();
+
+    /*
+      1. Prepare a Transaction
+      2. Apply Transaction to Object Store
+      3. Add video to VideoStore
+    */
+
+    if (database) {
+      let id = uuid.v4();
+
+      let transaction = database.transaction("video", "readwrite");
+      let videoStore = transaction.objectStore("video");
+
+      let entry = {
+        id: id,
+        videoData: blob,
+      };
+
+      videoStore.add(entry);
+    }
   });
 });
 

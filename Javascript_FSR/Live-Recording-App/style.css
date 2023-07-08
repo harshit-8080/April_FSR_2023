@@ -157,3 +157,18 @@ video {
 
     z-index: 1;
 }
+
+.recordingPage{
+    font-size: 44px;
+    color: blue;
+    position: absolute;
+    bottom: 10rem;
+    right: 30rem;
+
+    cursor: pointer;
+    z-index: 2;
+}
+
+.recordingPage:hover{
+    color: white;
+}

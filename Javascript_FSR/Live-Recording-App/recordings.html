@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="recordings.css">
+</head>
+<body>
+    <h1 class="h1">Live Stream & Record Now</h1>
+
+    <div class="gallery-container">
+        <div class="video-continer">
+            <video autoplay class="video" autoplay src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"></video>
+        </div>
+    </div>
+
+
+    <script src="indexdb.js"></script>
+    <script src="recordings.js"></script>
+
+    <script>
+        let h1 = document.querySelector(".h1");
+        h1.addEventListener("click", ()=>{
+            location.assign("./index.html")
+        })
+    </script>
+</body>
+</html>

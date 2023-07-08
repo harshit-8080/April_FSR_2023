@@ -39,7 +39,17 @@
 
     <div class="filter-layer"></div>
 
-    
+    <div class="recordingPage">Go To RECORDINGs</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
+    <script src="indexdb.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        let recordingPage = document.querySelector(".recordingPage");
+        recordingPage.addEventListener("click", ()=>{
+            location.assign("./recordings.html")
+        })
+    </script>
 </body>
 </html>
