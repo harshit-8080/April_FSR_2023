@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+h1{
+    text-align: center;
+    font-weight: 600;
+    margin: 50px 0 20px;
+}
+p{
+    text-align: center;
+
+}
+.greenCircle{
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+     /* position: relative; */
+    /* z-index: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: backgrnd-circle .75s ease-in-out forwards;
+    animation-delay: .5s; 
+    /* transform: scale(0); */
+    /* background-color: #71DFBE; */
+}
+@keyframes backgrnd-circle{
+    0% {
+        background-color: transparent;
+        transform: scale(0);
+    }
+    60% {
+        background-color:  rgb(76, 193, 76);
+        transform: scale(1.25);
+    }
+    100% {
+        background-color:  rgb(76, 193, 76);
+        transform: scale(1);
+    }
+}
+/* TickMark */
+.tick{
+    /* fill: none; */
+    stroke: white;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 40.84104919433594;
+    stroke-dashoffset: 40.84104919433594;
+    width: 80px;
+    animation: checkMark .75s forwards;
+    animation-delay: 1.8s;
+}
+@keyframes checkMark{
+    100% {
+        stroke-dashoffset: 0;
+    }
+
+}
+/* .whiteTick::before,
+.whiteTick::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    width:0;
+    height: 10px;
+    transform-origin: left;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:forwards;
+}
+.whiteTick::before{
+    
+    top: 62px;
+    left: 65px;
+    transform: rotate(45deg);
+    animation-name: left;
+    animation-delay: 0.8s;
+}
+.whiteTick::after{
+    
+    top: 72px;
+    left: 70px;
+    transform: rotate(-45deg);
+    animation-name: right;
+    animation-delay: 1.1s;
+}
+
+@keyframes left {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 15px;
+    }
+}
+@keyframes right {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 30px;
+    }
+} */
+
+/* .whiteTick{
+    position: absolute;
+    z-index: 2;
+} */
+.orderHeading{
+display: static;
+}
+#thankYouNote{
+    text-align: center;
+    margin-top: 30px;
+}

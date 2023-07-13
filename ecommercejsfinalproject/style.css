@@ -1,0 +1,427 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:inherit;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+    box-sizing:border-box;
+}
+a{
+text-decoration: none;
+color:black;
+}
+
+/* NavBar */
+/* header {
+    width: 100%;
+} */
+nav.headerFlex{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:8px 8%;
+    background-color: white;
+    box-shadow: 0 2px 5px #ccc;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:10;
+    box-sizing:border-box;
+}
+.leftHeader{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.logo{
+    font-size: 36px;    
+    font-weight: 400;
+    margin-right:16px;
+}
+
+.logo>a{
+    font-weight:400;
+    cursor:pointer;
+    display:flex;
+    gap:0;
+}
+.logo a span{
+    font-weight: 800;
+}
+ul{
+    /* margin-left:14px; */
+    display: inline-flex;
+}
+li{
+    display:inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin-left: 35px;
+}
+li > a{
+    display:inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight:600;
+    flex-wrap: nowrap;
+}
+
+.search{
+    width:100%;
+    max-width:400px;
+    position:relative;
+}
+.search > i{
+    position: absolute;
+    color:#999;
+    font-size: 18px;
+    top:50%;
+    left:18px;
+    transform:translateY(-50%); 
+}
+#searchBox{
+    width:100%;
+    box-sizing: border-box;
+    color:black;
+    background-color:rgb(245, 242, 242);
+    border: 1px solid rgb(245, 242, 242);
+    outline:none;
+    padding:10px 24px 8px 48px;
+}
+/* Right Header */
+.rightHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    /* margin: 20px 50px; */
+}
+.cart{
+position:relative;
+margin-right:32px;
+}
+.cart > a{
+    text-decoration: none;
+}
+.cart-size{
+    font-size: 18px;
+    cursor:pointer;
+}
+.addToCart{
+    color:black;
+}
+#cartCount{
+    position:absolute;
+    top:-12px;
+    right:-12px;
+    background-color: #009688;  
+    color:white;
+    width:18px;
+    height:18px;
+    border-radius:50%; 
+    text-align:center;
+    font-size:12px;
+    font-weight:600;
+    margin:0;
+    box-sizing:border-box;
+}
+.profile{
+    font-size: 50px;
+    width:100%;
+    height:100%;
+}
+
+main{
+    width:100%;
+    min-height:80vh;
+    box-sizing: border-box;
+    margin-top:120px;
+    padding-bottom: 8%;  
+}
+/* Carousel */
+/* section{
+    display:block;
+    margin-top: 20px;
+} */
+#slide{
+    margin:0;
+    position:relative;
+    display:block;
+    overflow: hidden;
+}
+.slideShowContainer{
+    padding: 0 50px;
+    margin:0 80px;
+}
+.mySlides{
+    position: relative;
+    top:0;
+    left:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+.fade{
+    animation-name: fade;
+    animation-duration: 2s;
+}
+.dots{
+    margin:5px;
+}
+.dot{
+    cursor:pointer;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    margin-left:3px;
+    margin-right:3px;
+    background-color: #ccc;
+    color: #ccc;
+    display: inline-block;
+    transition:background-color 0.6s ease;
+}
+.active, .dot:hover{
+    background-color: #717171;
+}
+/* Clothing and Accessories Section */
+.containerStyles{
+    padding: 6% 8% 0;
+}
+.para-heading{
+    color: rgb(27, 25, 25);
+    font-size: 28px;
+    font-weight: 600;
+    opacity:0.8;
+}
+.indvImageSection{
+    cursor:pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 5px #ccc;
+    min-width:150px;
+    width:19.2%;
+    height:auto;
+    margin:30px 4px;
+    border-radius:5px;
+}
+.image-desc{
+    padding-left:10px;
+    margin: 10px auto;
+}
+.image-name{
+    text-align:left;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color:rgb(27, 25, 25);
+}
+.image-brand{
+    text-align:left;
+    font-size: 12px;
+    margin-top:10px;
+    color:rgb(110,110,110);
+}
+.image-price{
+    margin-top:10px;
+    text-align:left;
+    color: #009688;
+    font-size: 15px;
+    letter-spacing: 2px;
+
+}
+/* Clothing Section */
+.clothing-cards{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
+.clothing-imagesDiv{
+    display:flex;
+    flex-direction:row;
+    justify-content: start;
+    /* align-items: center; */
+    flex-wrap:wrap;
+}
+.clothingImages{
+    width:100%;
+}
+
+
+/* Accessories Section */
+.accessories-cards{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    flex-direction:column;  
+}
+.accessories-imagesDiv{
+    display:flex;
+    justify-content: start;
+    flex-wrap:wrap;
+}
+.accessoriesImages{
+    width:100%;
+}
+
+/* Edyoda Project Logo */
+#edyodaLogo{
+    width:130px;
+    position: fixed;
+    bottom:50px;
+    right:50px;
+}
+/* Footer */
+footer{
+    width:100%;
+    background-color: #1c1b1e;
+    color: white;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    padding:4% 8%;
+}
+footer > div{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+footer > div:first-of-type{
+    padding-left: 0;
+}
+.footerHeading{
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity:0.9;
+}
+.linkFooter{
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin-top: 12px;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity:0.8;
+}
+@media screen and (max-width: 400px){
+    /* Header Tag */
+    header {
+        width: 100%;
+    }
+    .headerFlex{
+        padding: 0;
+        width: 100%;
+    }
+    .leftHeader{
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+    }
+    .logo {
+        font-size: 36px;
+        font-weight: 400;
+        margin-right: 16px;
+    }
+    .logo > a{
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+    }
+    .logo a span {
+        font-weight: 800;
+    }
+    .leftHeader > a {
+        display: none;
+    }
+    ul{
+        flex-wrap: nowrap;
+    }
+    li > a{
+        display:inline-flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight:600;
+        flex-wrap: nowrap;
+    }
+    .search {
+        display: none;
+    }
+    .profile {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    /* Main Tag */
+    main{
+        margin-top: 70px;
+    }
+    .slideShowContainer {
+        padding: 10px;
+        margin: 0;
+    }
+    /* JS Classes for Clothing & Accessories */
+    .containerStyles {
+        padding: 0px;
+    }
+    .para-heading{
+        font-size: 24px;
+    }
+    .indvImageSection{
+        width: 47.5%;
+    }
+    /* Project Logo */
+    #edyodaLogo {
+        width: 128px;
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        display: none;
+    }
+    /* Footer Tags */
+    footer {
+        display: flex;
+    }
+    
+    footer > div {
+        margin-bottom: 40px;
+        padding-right: 0px;
+        padding-left: 20px;
+    }
+    
+    .footerDiv{
+        display: flex;
+        /* gap: 30px 20px; */
+        justify-content: space-between;
+        flex-direction: column;
+        width: 50%;
+    }
+    /* Checkout page */
+    #cartContent > div:first-of-type {
+        width: 100%;
+    }
+    .placeOrder{
+        font-size: 14px;
+    }
+
+    /* Order Placed page */
+    .orderHeading {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8);
+        margin: 0;
+        margin-top: 48px;
+        margin-bottom: 16px;
+    }
+    .section-heading{
+        font-size: 20px;
+    }
+}

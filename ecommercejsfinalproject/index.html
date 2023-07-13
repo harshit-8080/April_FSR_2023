@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+    crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="stylesheet" href="./CheckoutPg/thirdcheckout.css" type="text/css">
+    <link rel="stylesheet" href="./ProdPrevDetailsPg/2nd_prod_prev_details.css" type="text/css">
+    <title>Shopping site</title>
+</head>
+<body>
+    <header>
+        <nav class="headerFlex">
+            <div class="leftHeader">
+                <div class="logo">
+                    <a href="#">
+                        <span>SHOP</span>
+                        LANE
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="#clothingSection">CLOTHING</a></li>
+                    <li><a href="#accessoriesSection">ACCESSORIES</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <input id="searchBox" type="search" placeholder="Search for Clothing and Accessories">
+            </div>
+            <div class="rightHeader">
+                <div class="cart">
+                    <p id="cartCount">0</p>
+                    <a href="./CheckoutPg/thirdlastcheckout.html" class="addToCart"><i class="fas fa-shopping-cart cart-size"></i></a>
+                </div>
+                <div class="profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </nav>
+        <!-- <hr /> -->
+    </header>
+    <main>
+        <section class="carousel">
+            <div id="slide">
+                <div class="slideShowContainer">
+                    <div class="mySlides fade">
+                        <img src="https://imgur.com/96OnkX7.png" class="slideImage" width="100%" alt="Carouselimg1" />
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="https://imgur.com/KtGxwnN.png" class="slideImage" width="100%" alt="Carouselimg2" />
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="https://imgur.com/sfjg9R8.png" class="slideImage" width="100%" alt="Carouselimg3" />
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="https://imgur.com/p0wdadG.png" class="slideImage" width="100%" alt="Carouselimg4" />
+                    </div>
+                </div>
+                <div class="dots" style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </section>
+        <section id="clothingSection">
+            <!-- <div class="containerStyles">
+                <div class="clothing-cards">
+                    Cloth-heading
+                    <p class="para-heading">Clothing For Men and Women</p>
+                    Cloth-images
+                    <div class="clothing-imagesDiv">
+                        <div class="indvImageSection">
+                            <a href=">
+                                <img src="" alt="" class="clothingImages">
+                            </a>
+                            <div class="image-desc">
+                                <h2 class="image-name"></h2>
+                                <h4 class="image-brand"></h4>
+                                <h5 class="image-price"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+        <section id="accessoriesSection">
+            <!-- <div class="containerStyles">
+                <div class="accessories-cards">
+                    Accessories heading
+                    <p class="para-heading">Accessories For Men and Women</p>
+                     Accessories images
+                    <div class="accessories-imagesDiv">
+                        <div class="indvImageSection">
+                            <a href="">
+                                <img src="" alt="" class="clothingImages">
+                            </a>
+                            <div class="image-desc">
+                                <h2 class="image-name"></h2>
+                                <h4 class="image-brand"></h4>
+                                <h5 class="image-price"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+        </section>
+    </main>
+    <img id="edyodaLogo" src="https://i.imgur.com/OKAY6Fl.png" alt="Edyoda Projects Logo">
+    <footer>
+        <div class="footerDiv">
+            <h4 class="footerHeading">ONLINE STORE</h4>
+            <a href="#" class="linkFooter">United States</a>
+            <a href="#" class="linkFooter">WOMEN CLOTHING</a>
+            <a href="#" class="linkFooter">MEN ACCESSORIES</a>
+            <a href="#" class="linkFooter">MEN ACCESSORIES</a>
+        </div>
+        <div class="footerDiv">
+            <h4 class="footerHeading">HELPFUL LINKS</h4>
+            <a href="#" class="linkFooter">Home</a>
+            <a href="#" class="linkFooter">About</a>
+            <a href="#" class="linkFooter">Contact</a>
+        </div>
+        <div class="footerDiv">
+            <h4 class="footerHeading">PARTNERS</h4>
+            <a href="#" class="linkFooter">ZARA</a>
+            <a href="#" class="linkFooter">PANTALOONS</a>
+            <a href="#" class="linkFooter">LEVIS</a>
+            <a href="#" class="linkFooter">UCB</a>
+            <a href="#" class="linkFooter">+ MANY MORE</a>
+        </div>
+        <div class="footerDiv">
+            <h4 class="footerHeading">ADDRESS</h4>
+            <p href="#" class="linkFooter">Building 101</p>
+            <p href="#" class="linkFooter">Central Avenue</p>
+            <p href="#" class="linkFooter">LA - 902722</p>
+            <p href="#" class="linkFooter">United States</p>
+        </div>
+    </footer>
+    <script src="./script.js" defer></script>
+    <script src="./CheckoutPg/thirdcheckout.js" defer></script>
+    <script src="./ProdPrevDetailsPg/2nd_prod_prev_details.js" defer></script>
+</body>
+</html>

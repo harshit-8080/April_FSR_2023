@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+#cart-section{
+    padding:2% 8%;
+}
+#cart-heading{
+    font-weight: 500;
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 48px;
+}
+#cartContent {
+    display: flex;
+    justify-content: start;
+}
+.amount-section{
+    /* display: inline; */
+    width: 50%;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 16px;
+    margin-top: 48px;
+    margin-left: 23px;
+    box-shadow: 0 2px 5px #ccc;
+}
+.prodCheckoutContainer {
+    display: flex;
+    box-shadow: 0 2px 5px #ccc;
+    background-color: white;
+    max-width:600px;
+    border-radius: 5px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.imageLeftBlock > img {
+    width: 80px;
+    min-width: 80px;
+    border-radius: 5px;
+    margin-right: 16px;
+}
+.rightHead {
+    font-weight: 600;
+    font-size: 18px;
+    /* color: rgba(0, 0, 0, 0.8); */
+    margin: 0;
+    margin-bottom: 4px;
+}
+.rightProdCount {
+    margin: 0;
+    margin-top:4px;
+    margin-bottom: 4px;
+}
+.rightProdPrice {
+    margin: 0;
+    margin-top:4px;
+    margin-bottom: 4px;
+}
+.section-heading {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 16px;
+}
+#totalAmount{
+    color: black;
+    font-size: 24px;
+    font-weight: 800;
+    margin-left: 4px;
+}
+.placeOrder{
+    background-color: #009688;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding: 18px 36px;
+    border-radius: 6px;
+    margin-top: 36px;
+    font-weight: 600;
+    color: white;
+}
+
+@media screen and (max-width: 400px) {
+    .prodCheckoutContainer {
+        flex-direction: column;
+    }
+    .imageLeftBlock > img {
+        width: 100%;
+    }
+    .rightHeading {
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0;
+        margin-bottom: 4px;
+    }
+    .rightProdCount {
+        margin: 0;
+        margin-top:4px;
+        margin-bottom: 4px;
+    }
+    .rightProdPrice {
+        margin: 0;
+        margin-top:4px;
+        margin-bottom: 4px;
+    }
+}
