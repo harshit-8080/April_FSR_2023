@@ -69,6 +69,8 @@ class LinkedList {
       current = current.next;
     }
     console.log(`Your Linked List Having ${count} Nodes`);
+
+    return count;
   }
 
   clear() {
@@ -77,16 +79,55 @@ class LinkedList {
 
     console.log("Your Linked List Is Now Empty");
   }
+
+  delete(index) {
+    if (index >= 0 && index < this.length()) {
+      if (this.head == null && this.tail == null) {
+        console.log("Your LL is Empty, Can't Delete Anything");
+      } else {
+        if (index == 0) {
+          this.head = this.head.next;
+        } else {
+          let current = this.head;
+          let previous = null;
+
+          let currentIndex = 0;
+
+          while (currentIndex < index) {
+            previous = current;
+            current = current.next;
+            currentIndex++;
+          }
+
+          previous.next = current.next;
+
+          //previous.next == null
+          if (!previous.next) {
+            this.tail = previous;
+          }
+        }
+      }
+    } else {
+      console.log("Index is Invalid...");
+    }
+  }
 }
 
 const llObject = new LinkedList();
 
 llObject.append(10);
 llObject.append(20);
-llObject.clear();
-llObject.append(30);
-llObject.prepend(100);
-llObject.prepend(200);
+
+// llObject.append(20);
+// llObject.append(30);
+// llObject.prepend(100);
+// llObject.prepend(200);
+
 llObject.isEmpty();
-llObject.print(); // 80 -> 40 -> 10 -> 20 -> 30 -> 50 -> 60 -> 70
-llObject.length(); // 2
+llObject.length();
+
+llObject.print(); // 200 -> 100 -> 10 -> 20 -> 30
+
+llObject.delete(1);
+
+llObject.print();
