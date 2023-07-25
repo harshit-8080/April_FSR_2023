@@ -1,6 +1,7 @@
 import "./App.css";
 import User from "./User";
 import MovieCard from "./MovieCard";
+import { useState } from "react";
 
 const data = [
   {
@@ -245,8 +246,30 @@ const data = [
   },
 ];
 function App() {
+  let localNumber = 1; // local variable
+
+  let [count, setCount] = useState("");
+
+  // count is state variable
+  // setCount is state set function..
+
+  // setCount will help us to update the state variable and also trigger the re- render of components.(CHange the DOM)
+
+  function f1() {
+    localNumber++;
+    console.log(localNumber); // 1 - 2 - 3 -4 - 5
+  }
+  function f2() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
+      <h1>Local Number = {localNumber}</h1>
+      <button onClick={f1}>Local Counter</button>
+      <h1>State Number = {count}</h1>
+      <button onClick={f2}>State Counter</button>
+
       {data.map((m) => {
         return <MovieCard sunil={m} />;
       })}
