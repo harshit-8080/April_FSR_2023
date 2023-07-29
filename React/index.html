@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const heading1 = React.createElement("h1",{id:"heading1"}, "Hello From React 1");
+        const heading2 = React.createElement("h1",{id:"heading2"}, "Hello From React 2");
+
+        const div = React.createElement("div",{id:"container"},[heading1, heading2]);
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(div);
+    </script>
+</body>
+</html>
