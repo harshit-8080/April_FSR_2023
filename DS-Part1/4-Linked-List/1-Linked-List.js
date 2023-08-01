@@ -111,6 +111,25 @@ class LinkedList {
       console.log("Index is Invalid...");
     }
   }
+
+  insertAt(index, value) {
+    if (index == 0) {
+      this.prepend(value);
+    } else if (index == this.length()) {
+      this.append(value);
+    } else {
+      const newNode = new Node(value);
+
+      let current = this.head;
+      let currentIndex = 0;
+      while (currentIndex < index - 1) {
+        current = current.next;
+        currentIndex++;
+      }
+      newNode.next = current.next;
+      current.next = newNode;
+    }
+  }
 }
 
 const llObject = new LinkedList();
@@ -118,16 +137,11 @@ const llObject = new LinkedList();
 llObject.append(10);
 llObject.append(20);
 
-// llObject.append(20);
-// llObject.append(30);
-// llObject.prepend(100);
-// llObject.prepend(200);
+llObject.append(30);
+llObject.append(40);
 
-llObject.isEmpty();
-llObject.length();
+llObject.print();
 
-llObject.print(); // 200 -> 100 -> 10 -> 20 -> 30
-
-llObject.delete(1);
+llObject.insertAt(1, 100);
 
 llObject.print();
