@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+    color: white;
+}
+
+.movingBookingForm{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: mediumpurple;
+}
+
+.movingBookingForm h2{
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: black;
+}
+
+.movingBookingForm label{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.movingBookingForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    font-size: 20px;
+
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+
+}
+
+
+.movingBookingForm button{
+    margin-top:30px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: mediumseagreen;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.movingBookingForm button:hover{
+    background-color: mediumvioletred;
+}
+
+.submitted{
+    animation: fadeout 2s;
+}
+
+@keyframes fadeout {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
