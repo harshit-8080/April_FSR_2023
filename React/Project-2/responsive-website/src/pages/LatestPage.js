@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import CryptoHeroSection from "../components/CryptoHeroSection";
+import Header from "../components/Header";
+import NewComponent from "../components/NewComponent";
 import VideoCarousel from "../components/VideoCarousel";
 
-function HomePage() {
+function LatestPage() {
   const video = [
     { url: "https://www.youtube.com/embed/tgbNymZ7vqY" },
     { url: "https://www.youtube.com/embed/BSOvXn0d8xI" },
@@ -11,12 +11,12 @@ function HomePage() {
     { url: "https://www.youtube.com/embed/tgbNymZ7vqY" },
   ];
   return (
-    <>
-      <NavBar />
-      <CryptoHeroSection />
+    <div>
+      <Header />
+      <NewComponent />
       <VideoCarousel video={video} />
-    </>
+    </div>
   );
 }
 
-export default HomePage;
+export default LatestPage;

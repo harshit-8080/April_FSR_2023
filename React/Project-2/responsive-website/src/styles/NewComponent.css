@@ -1,0 +1,20 @@
+.new-component {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    gap:20px;
+    padding: 20px;
+    background-color: lightgray;
+    animation: fadeInAnimation 2s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transition: translateY(0);
+    }
+}

@@ -1,0 +1,54 @@
+.hero-section{
+    background-image: url("https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg?w=360");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+
+    text-align: center;
+    padding: 100px 0;
+
+    z-index: -2;
+}
+
+.hero-content{
+    margin-top: 400px;
+}
+
+.hero-title{
+    font-size: 52px;
+    margin-bottom: 40px;
+}
+
+.hero-subtitle{
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta-button{
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: mediumpurple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+.cta-button:hover{
+    background-color: rgb(120, 70, 219);
+}
+
+@media (max-width: 1100px){
+    .hero-title{
+        font-size: 28px;
+    }
+    .hero-subtitle{
+        font-size: 16px;
+    }
+    .cta-button{
+        font-size: 16px;
+    }
+}

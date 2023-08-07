@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-function NavBar() {
+function Header() {
   const [click, setClick] = useState(false);
   console.log(click);
   return (
-    <div className="header">
+    <div className="header" style={{ position: "sticky" }}>
       <Link to="/">
         <h1>HashCrypto</h1>
       </Link>
@@ -43,4 +43,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Header;
