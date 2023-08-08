@@ -3,6 +3,7 @@ import CryptoCard from "../components/CryptoCard";
 import VideoCarousel from "../components/VideoCarousel";
 import NavBar from "../components/NavBar";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function ExplorePage() {
   const cryptoData = [
@@ -51,6 +52,8 @@ function ExplorePage() {
         );
       })}
       <VideoCarousel video={video} />
+
+      <Footer />
     </div>
   );
 }

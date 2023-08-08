@@ -25,6 +25,9 @@ function NavBar() {
         <li>
           <Link to="/buy">Buy</Link>
         </li>
+        <li>
+          <Link to="/buy">SignUp</Link>
+        </li>
       </ul>
 
       <div

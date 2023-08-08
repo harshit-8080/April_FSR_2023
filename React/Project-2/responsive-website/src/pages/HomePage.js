@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import CryptoHeroSection from "../components/CryptoHeroSection";
 import VideoCarousel from "../components/VideoCarousel";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const video = [
@@ -14,7 +15,12 @@ function HomePage() {
     <>
       <NavBar />
       <CryptoHeroSection />
+      <br />
+      <br />
+      <br />
+      <br />
       <VideoCarousel video={video} />
+      <Footer />
     </>
   );
 }

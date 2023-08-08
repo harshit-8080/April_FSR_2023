@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import NewComponent from "../components/NewComponent";
 import VideoCarousel from "../components/VideoCarousel";
+import Footer from "../components/Footer";
 
 function LatestPage() {
   const video = [
@@ -15,6 +16,7 @@ function LatestPage() {
       <Header />
       <NewComponent />
       <VideoCarousel video={video} />
+      <Footer />
     </div>
   );
 }
