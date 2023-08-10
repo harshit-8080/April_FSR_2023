@@ -6,3 +6,6 @@ function ProductContainer() {
 }
 
 export default ProductContainer;
+
+// Whatever the value you will pass while dispatching an action.
+// That value will go action.payload in reducer function.

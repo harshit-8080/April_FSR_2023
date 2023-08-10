@@ -15,15 +15,12 @@ const ProductSlice = createSlice({
   },
   reducers: {
     increasePrice: (state, action) => {
-      state.data.price = state.data.price + 1000;
-    },
-    decreasePrice: (state, action) => {
-      state.data.price = state.data.price - 1000;
+      state.data.price = action.payload;
     },
   },
 });
 
 // console.log(ProductSlice);
 
-export const { increasePrice, decreasePrice } = ProductSlice.actions;
+export const { increasePrice } = ProductSlice.actions;
 export default ProductSlice.reducer;

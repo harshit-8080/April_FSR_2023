@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decreasePrice, increasePrice } from "./redux/ProductSlice";
+import { increasePrice } from "./redux/ProductSlice";
 
 const Watch = () => {
+  const [price, setPrice] = useState(0);
   const data = useSelector((store) => store.product.data);
 
+  // console.log("watch is rendering");
+
   const dispatch = useDispatch();
-
-  console.log(dispatch);
-
   function handlePrice() {
-    dispatch(increasePrice());
-  }
-  function handleDecrease() {
-    dispatch(decreasePrice());
+    dispatch(increasePrice(price));
   }
 
-  console.log(data);
   return (
     <div>
       <h1>{data.name}</h1>
       <h1>{data.price}</h1>
       <h1>{data.company}</h1>
 
-      <button onClick={handlePrice}>Increase By 1000</button>
-      <button onClick={handleDecrease}>Decrease By 1000</button>
+      <input
+        type="text"
+        placeholder="New Price"
+        onChange={(e) => setPrice(e.target.value)}
+      />
+      <button onClick={handlePrice}>Set New Price</button>
     </div>
   );
 };

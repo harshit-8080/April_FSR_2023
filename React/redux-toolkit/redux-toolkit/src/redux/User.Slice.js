@@ -18,6 +18,6 @@ const UserSlice = createSlice({
   },
 });
 
-console.log(UserSlice.reducer);
+// console.log(UserSlice.reducer);
 
 export default UserSlice.reducer;
