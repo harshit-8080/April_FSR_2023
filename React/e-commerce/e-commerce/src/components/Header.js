@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((store) => store.cart.cartList);
+
   return (
     <header className="header">
       <div className="logo">Header Component</div>
@@ -18,7 +21,7 @@ const Header = () => {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/cart">Cart - 0</Link>
+            <Link to="/cart">Cart - {cart.length}</Link>
           </li>
         </ul>
       </nav>

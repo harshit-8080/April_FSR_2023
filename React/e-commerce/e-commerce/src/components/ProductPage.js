@@ -1,16 +1,38 @@
 import React, { useEffect, useState } from "react";
 import "../styles/ProductPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct } from "../redux/ProductSlice";
+import { addToCart, calculateTotalPrice } from "../redux/CartSlice";
 
 function ProductPage() {
-  const [products, setProducts] = useState();
+  const products = useSelector((store) => store.product.productList);
+  const cartList = useSelector((store) => store.cart.cartList);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     (async function f1() {
       const response = await fetch("https://fakestoreapi.com/products");
       const data = await response.json();
-      setProducts(data);
+
+      dispatch(addProduct(data));
     })();
   }, []);
+
+  function handleClick(product) {
+    let duplicate = false;
+
+    for (let i = 0; i < cartList.length; i++) {
+      if (product.title == cartList[i].title) {
+        duplicate = true;
+      }
+    }
+    if (!duplicate) {
+      dispatch(addToCart(product));
+      dispatch(calculateTotalPrice());
+    } else {
+      alert("Already added to cart");
+    }
+  }
 
   return (
     <div>
@@ -19,7 +41,14 @@ function ProductPage() {
           <div className="product">
             <div className="product-image">
               <img src={product.image} alt={product.title} />
-              <button className="btn">Add To Cart</button>
+              <button
+                className="btn"
+                onClick={() => {
+                  handleClick(product);
+                }}
+              >
+                Add To Cart
+              </button>
             </div>
             <div className="product-details">
               <h2 className="product-title">{product.title}</h2>
