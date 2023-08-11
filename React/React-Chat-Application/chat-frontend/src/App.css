@@ -1,0 +1,36 @@
+.App{
+    text-align: center;
+    padding: 2rem;
+}
+.chat-container{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.message{
+    max-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+.input-container{
+    display: flex;
+    margin-top: 1;
+}
+input{
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button{
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: mediumslateblue;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
