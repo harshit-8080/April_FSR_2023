@@ -1,45 +1,47 @@
-console.clear();
-// Question 1. Delete the elements in an linked list whose sum is equal to zero
-// Input: head = [1,2,-3,3,1]
-// Output: [3,1]
+class linkedList {
+  deleteSumZero() {
+    let current = this.head;
 
-// Input: head = [1,2,3,-3,4]
-// Output: [1,2,4]
+    while (current) {
+      let sum = 0;
+      let tempNode = current;
 
-// Input: head = [1,2,3,-3,-2]
-// Output: [1]
+      while (tempNode) {
+        sum = sum + tempNode.data;
 
-function ListNode(value1, next) {
-  this.value1 = value1;
-  this.next = null;
-}
+        if (sum == 0) {
+          // delete nodes from current to temp inclusive()
 
-let removeZeroSumSublists = function (head) {
-  const dummy = new ListNode();
-  dummy.next = head;
-  const hm = new Map();
-  let pSum = 0;
-  hm.set(pSum, dummy);
+          this.helpDelete(current, tempNode);
+        }
 
-  while (head) {
-    pSum += head.val;
-    if (hm.has(pSum)) {
-      //remove entries
-      let to_remove = hm.get(pSum).next,
-        SUM = pSum;
-      while (to_remove !== head) {
-        SUM += to_remove.val;
-        hm.delete(SUM);
-        to_remove = to_remove.next;
+        tempNode = tempNode.next;
       }
-      //draw link (delete nodes)
-      hm.get(pSum).next = head.next;
-    } else hm.get(pSum, head);
-    head = head.next;
-  }
-  return dummy.next;
-};
 
-head1 = [1, 2, 3, -3, -2];
-let res1 = removeZeroSumSublists(head1);
-console.log(res1);
+      current = current.next;
+    }
+  }
+
+  helpDelete(start, end) {
+    let current = this.head;
+
+    let prev = null;
+
+    // finding the node before start node
+    while (current != start) {
+      prev = current;
+      current = current.next;
+    }
+
+    // skip node from start to end...
+    while (current != end.next) {
+      current = current.next;
+    }
+
+    if (prev) {
+      prev.next = end.next;
+    } else {
+      this.head = end.next;
+    }
+  }
+}
