@@ -1,0 +1,6 @@
+First api - API to return all players.
+
+Process 
+    Step - 1 --> api method => get
+    Step - 2 --> api endpoint => "/players"
+    
