@@ -1,30 +1,28 @@
 const { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 
-const restaurantSchema = new Schema(
+const foodSchema = new Schema(
   {
+    restaurantId: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,
     },
-    ownerName: {
+    description: {
       type: String,
       required: false,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
+    price: {
       type: String,
       required: true,
     },
-    address: {
+    foodType: {
       type: String,
-      required: false,
+      required: true,
     },
-    phone: {
+    cookingTime: {
       type: String,
       required: false,
     },
@@ -32,26 +30,16 @@ const restaurantSchema = new Schema(
       type: String,
       required: true,
     },
-    serviceAvailable: {
-      type: Boolean,
-    },
-    foods: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "Food",
-      },
-    ],
   },
   {
     toJSON: {
       transform(doc, ret) {
-        delete ret.password;
         delete ret.__v;
       },
     },
   }
 );
 
-const Restaurant = mongoose.model("Restaurant", restaurantSchema);
+const Food = mongoose.model("Food", foodSchema);
 
-module.exports = Restaurant;
+module.exports = Food;
