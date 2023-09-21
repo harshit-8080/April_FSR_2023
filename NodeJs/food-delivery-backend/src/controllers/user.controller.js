@@ -4,6 +4,8 @@ const {
   checkEmailPassword,
   userByEmail,
   addFoodToMyCart,
+  getMyCartInfo,
+  clearCart,
 } = require("../services/user.service");
 
 const signupUser = async (req, res) => {
@@ -65,10 +67,36 @@ const addToCart = async (req, res) => {
   }
 };
 
+const getCart = async (req, res) => {
+  try {
+    const email = req.email;
+
+    const response = await getMyCartInfo(email);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
+const deleteCart = async (req, res) => {
+  try {
+    const email = req.email;
+
+    const response = await clearCart(email);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupUser,
   getAllUsers,
   loginUser,
   getUserByEmail,
   addToCart,
+  getCart,
+  deleteCart,
 };

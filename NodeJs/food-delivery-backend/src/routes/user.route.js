@@ -5,6 +5,8 @@ const {
   loginUser,
   getUserByEmail,
   addToCart,
+  getCart,
+  deleteCart
 } = require("../controllers/user.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -38,5 +40,9 @@ UserRouter.post("/login", loginUser);
 UserRouter.get("/me", authToken, getUserByEmail);
 
 UserRouter.post("/add", authToken, addToCart);
+
+UserRouter.get("/cart", authToken, getCart);
+
+UserRouter.delete("/cart", authToken, deleteCart);
 
 module.exports = UserRouter;

@@ -88,10 +88,37 @@ const addFoodToMyCart = async (email, foodId, unit) => {
   }
 };
 
+const getMyCartInfo = async (email) => {
+  const user = await User.findOne({ email: email }).populate("carts.food");
+
+  if (user) {
+    return user;
+  } else {
+    return "No User Found with this email";
+  }
+};
+
+const clearCart = async (email) => {
+  const user = await User.findOne({ email: email });
+  if (user) {
+    if (user.carts.length == 0) {
+      return "cart is already empty";
+    } else {
+      user.carts = [];
+      await user.save();
+      return user;
+    }
+  } else {
+    return "No User Found with this email";
+  }
+};
+
 module.exports = {
   createUser,
   returnAllUsers,
   checkEmailPassword,
   userByEmail,
   addFoodToMyCart,
+  getMyCartInfo,
+  clearCart,
 };
