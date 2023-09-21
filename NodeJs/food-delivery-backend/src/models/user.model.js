@@ -28,6 +28,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    carts: [
+      {
+        food: { type: mongoose.SchemaTypes.ObjectId, ref: "Food" },
+        unit: { type: Number },
+      },
+    ],
   },
   {
     toJSON: {

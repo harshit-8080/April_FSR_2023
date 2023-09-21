@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Food = require("../models/food.model");
 const {
   generateSalt,
   hashPassword,
@@ -55,9 +56,42 @@ const userByEmail = async (email) => {
   }
 };
 
+const addFoodToMyCart = async (email, foodId, unit) => {
+  const user = await User.findOne({ email: email });
+  if (user) {
+    const food = await Food.findOne({ _id: foodId });
+    if (!food) {
+      return "No Food Found with this Food ID";
+    }
+
+    if (user.carts.length == 0 && unit > 0) {
+      user.carts.push({ food: foodId, unit: unit });
+    } else {
+      let foodMatched = false;
+      user.carts.forEach((f) => {
+        if (f.food.toString() == food._id) {
+          foodMatched = true;
+          if (unit > 0) {
+            f.unit = unit;
+          }
+        }
+      });
+      if (!foodMatched && unit > 0) {
+        user.carts.push({ food: foodId, unit: unit });
+      }
+    }
+
+    const response = await user.save();
+    return response;
+  } else {
+    return "No User Found with this email";
+  }
+};
+
 module.exports = {
   createUser,
   returnAllUsers,
   checkEmailPassword,
   userByEmail,
+  addFoodToMyCart,
 };

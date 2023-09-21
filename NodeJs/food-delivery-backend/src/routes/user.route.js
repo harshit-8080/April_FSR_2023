@@ -4,6 +4,7 @@ const {
   getAllUsers,
   loginUser,
   getUserByEmail,
+  addToCart,
 } = require("../controllers/user.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -35,5 +36,7 @@ UserRouter.post("/login", loginUser);
 
 // Get Me API
 UserRouter.get("/me", authToken, getUserByEmail);
+
+UserRouter.post("/add", authToken, addToCart);
 
 module.exports = UserRouter;

@@ -3,6 +3,7 @@ const {
   returnAllUsers,
   checkEmailPassword,
   userByEmail,
+  addFoodToMyCart,
 } = require("../services/user.service");
 
 const signupUser = async (req, res) => {
@@ -50,9 +51,24 @@ const getUserByEmail = async (req, res) => {
   }
 };
 
+const addToCart = async (req, res) => {
+  try {
+    const email = req.email;
+    const foodId = req.body.foodId;
+    const unit = req.body.unit;
+
+    const response = await addFoodToMyCart(email, foodId, unit);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupUser,
   getAllUsers,
   loginUser,
   getUserByEmail,
+  addToCart,
 };
