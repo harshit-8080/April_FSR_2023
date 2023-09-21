@@ -26,6 +26,7 @@ RestaurantRouter.get("/restaurants/:id", authToken, getARestaurants);
 // get a restaurant BY ID
 RestaurantRouter.patch("/restaurants/services", authToken, updateServices);
 
+// add fodds
 RestaurantRouter.post("/restaurants/foods", authToken, addFood);
 
 module.exports = RestaurantRouter;

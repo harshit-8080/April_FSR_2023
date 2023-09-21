@@ -88,8 +88,8 @@ const addFoodToRestaurant = async (email, body) => {
     const response = await Food.create(food);
 
     restaurant.foods.push(response);
-
     await restaurant.save();
+
     return response;
   } else {
     return "No Restaurant Found for this email address";

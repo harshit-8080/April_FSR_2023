@@ -5,6 +5,7 @@ const foodSchema = new Schema(
   {
     restaurantId: {
       type: String,
+      required: true,
     },
     name: {
       type: String,
