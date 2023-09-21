@@ -73,6 +73,8 @@ const addFoodToMyCart = async (email, foodId, unit) => {
           foodMatched = true;
           if (unit > 0) {
             f.unit = unit;
+          } else if (unit == 0) {
+            user.carts.remove(f);
           }
         }
       });
