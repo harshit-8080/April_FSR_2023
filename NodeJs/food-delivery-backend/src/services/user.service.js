@@ -7,6 +7,7 @@ const {
 } = require("../utils/passwordHelper");
 const { createToken } = require("../utils/tokenHelper");
 const Transaction = require("../models/transaction.model");
+const Order = require("../models/order.model");
 
 const createUser = async (body) => {
   const user = {
@@ -161,6 +162,51 @@ const getAllMyPayments = async (email) => {
   }
 };
 
+const createOrderService = async (email, body) => {
+  const user = await User.findOne({ email: email });
+
+  if (!user) {
+    return "No user found with this email";
+  }
+
+  const items = body.items;
+  const foodIdsArray = items.map((i) => {
+    return i.food;
+  });
+
+  const foodArray = await Food.find({ _id: { $in: foodIdsArray } });
+
+  let totalAmount = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    totalAmount += foodArray[i].price * items[i].units;
+  }
+
+  const order = {
+    restaurantId: body.restaurantId,
+    totalAmount: totalAmount,
+    orderDate: new Date(),
+    remarks: body.remarks,
+    items: body.items,
+  };
+
+  const result = await Order.create(order);
+  user.orders.push(result);
+  await user.save();
+
+  return result;
+};
+
+const getAllMyOrders = async (email) => {
+  const user = await User.findOne({ email: email }).populate("orders");
+
+  if (!user) {
+    return "No user found with this email";
+  }
+
+  return user;
+};
+
 module.exports = {
   createUser,
   returnAllUsers,
@@ -172,4 +218,6 @@ module.exports = {
   createPaymentService,
   getAPaymentService,
   getAllMyPayments,
+  createOrderService,
+  getAllMyOrders,
 };

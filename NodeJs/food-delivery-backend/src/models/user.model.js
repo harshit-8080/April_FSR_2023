@@ -34,6 +34,12 @@ const userSchema = new Schema(
         unit: { type: Number },
       },
     ],
+    orders: [
+      {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Order",
+      },
+    ],
   },
   {
     toJSON: {

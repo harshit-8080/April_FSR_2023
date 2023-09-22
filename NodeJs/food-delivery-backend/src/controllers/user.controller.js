@@ -9,6 +9,8 @@ const {
   createPaymentService,
   getAPaymentService,
   getAllMyPayments,
+  createOrderService,
+  getAllMyOrders,
 } = require("../services/user.service");
 
 const signupUser = async (req, res) => {
@@ -131,6 +133,30 @@ const getAllPayment = async (req, res) => {
   }
 };
 
+const createOrder = async (req, res) => {
+  try {
+    const email = req.email;
+
+    const response = await createOrderService(email, req.body);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
+const getOrders = async (req, res) => {
+  try {
+    const email = req.email;
+
+    const response = await getAllMyOrders(email);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupUser,
   getAllUsers,
@@ -142,4 +168,6 @@ module.exports = {
   createPayment,
   getAPayment,
   getAllPayment,
+  createOrder,
+  getOrders,
 };
