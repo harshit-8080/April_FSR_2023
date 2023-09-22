@@ -6,7 +6,10 @@ const {
   getUserByEmail,
   addToCart,
   getCart,
-  deleteCart
+  deleteCart,
+  createPayment,
+  getAPayment,
+  getAllPayment,
 } = require("../controllers/user.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -39,10 +42,22 @@ UserRouter.post("/login", loginUser);
 // Get Me API
 UserRouter.get("/me", authToken, getUserByEmail);
 
+// add foods to Cart
 UserRouter.post("/add", authToken, addToCart);
 
+// get My Cart Item
 UserRouter.get("/cart", authToken, getCart);
 
+// Delete all foods from Cart
 UserRouter.delete("/cart", authToken, deleteCart);
+
+// Create a payment or transaction
+UserRouter.post("/payment", authToken, createPayment);
+
+// Get a payment or transaction
+UserRouter.get("/payment/:paymentId", authToken, getAPayment);
+
+// Get all my  payments or transactions
+UserRouter.get("/payments", authToken, getAllPayment);
 
 module.exports = UserRouter;

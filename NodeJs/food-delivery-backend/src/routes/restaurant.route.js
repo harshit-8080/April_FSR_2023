@@ -6,6 +6,7 @@ const {
   getARestaurants,
   updateServices,
   addFood,
+  getTotalAmounts,
 } = require("../controllers/restaurant.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -28,5 +29,7 @@ RestaurantRouter.patch("/restaurants/services", authToken, updateServices);
 
 // add fodds
 RestaurantRouter.post("/restaurants/foods", authToken, addFood);
+
+RestaurantRouter.get("/restaurant/totalAmounts", authToken, getTotalAmounts);
 
 module.exports = RestaurantRouter;

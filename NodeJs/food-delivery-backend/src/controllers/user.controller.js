@@ -6,6 +6,9 @@ const {
   addFoodToMyCart,
   getMyCartInfo,
   clearCart,
+  createPaymentService,
+  getAPaymentService,
+  getAllMyPayments,
 } = require("../services/user.service");
 
 const signupUser = async (req, res) => {
@@ -91,6 +94,43 @@ const deleteCart = async (req, res) => {
   }
 };
 
+const createPayment = async (req, res) => {
+  try {
+    const email = req.email;
+    const body = req.body;
+
+    const response = await createPaymentService(email, body);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
+const getAPayment = async (req, res) => {
+  try {
+    const paymentId = req.params.paymentId;
+
+    const response = await getAPaymentService(paymentId);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
+const getAllPayment = async (req, res) => {
+  try {
+    const email = req.email;
+
+    const response = await getAllMyPayments(email);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupUser,
   getAllUsers,
@@ -99,4 +139,7 @@ module.exports = {
   addToCart,
   getCart,
   deleteCart,
+  createPayment,
+  getAPayment,
+  getAllPayment,
 };

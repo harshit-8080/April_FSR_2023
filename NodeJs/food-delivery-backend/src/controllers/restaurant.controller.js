@@ -5,6 +5,7 @@ const {
   returnARestaurant,
   toggleServices,
   addFoodToRestaurant,
+  getTotalAmountService,
 } = require("../services/restaurant.service");
 
 const signupRestaurant = async (req, res) => {
@@ -80,6 +81,18 @@ const addFood = async (req, res) => {
   }
 };
 
+const getTotalAmounts = async (req, res) => {
+  try {
+    const email = req.email;
+    const response = await getTotalAmountService(email);
+
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupRestaurant,
   loginRestaurant,
@@ -87,4 +100,5 @@ module.exports = {
   getARestaurants,
   updateServices,
   addFood,
+  getTotalAmounts,
 };

@@ -6,6 +6,7 @@ const {
 const { createToken } = require("../utils/tokenHelper");
 const Restaurant = require("../models/restaurant.model");
 const Food = require("../models/food.model");
+const Transaction = require("../models/transaction.model");
 
 const createRestaurant = async (body) => {
   const restaurant = {
@@ -96,6 +97,26 @@ const addFoodToRestaurant = async (email, body) => {
   }
 };
 
+const getTotalAmountService = async (email) => {
+  const restaurant = await Restaurant.findOne({ email: email });
+
+  if (!restaurant) {
+    return "no restaurant found for this email address";
+  }
+  const transactions = await Transaction.find({ restaurantId: restaurant._id });
+
+  if (transactions.length == 0) {
+    return "no transaction found for this Restaurant";
+  }
+
+  let totalAmount = 0;
+  transactions.forEach((item) => {
+    totalAmount += Number(item.amount);
+  });
+
+  return { transactions, totalAmount };
+};
+
 module.exports = {
   createRestaurant,
   checkEmailPassword,
@@ -103,4 +124,5 @@ module.exports = {
   returnARestaurant,
   toggleServices,
   addFoodToRestaurant,
+  getTotalAmountService,
 };

@@ -6,6 +6,7 @@ const {
   decodePassword,
 } = require("../utils/passwordHelper");
 const { createToken } = require("../utils/tokenHelper");
+const Transaction = require("../models/transaction.model");
 
 const createUser = async (body) => {
   const user = {
@@ -115,6 +116,51 @@ const clearCart = async (email) => {
   }
 };
 
+const createPaymentService = async (email, body) => {
+  const user = await User.findOne({ email: email });
+
+  if (user) {
+    const transaction = {
+      userId: user._id,
+      restaurantId: body.restaurantId,
+      amount: body.amount,
+      paymentMode: body.paymentMode,
+    };
+    if (body.paymentMode == "COD") {
+      transaction.paymentStatus = "PENDING";
+    } else {
+      transaction.paymentStatus = "COMPLETED";
+    }
+
+    const result = await Transaction.create(transaction);
+
+    return result;
+  } else {
+    return "No user found with this email";
+  }
+};
+
+const getAPaymentService = async (paymentId) => {
+  const result = await Transaction.findOne({ _id: paymentId });
+  if (!result) {
+    return "Invalid Payment ID";
+  }
+  return result;
+};
+
+const getAllMyPayments = async (email) => {
+  const user = await User.findOne({ email: email });
+  if (user) {
+    const result = await Transaction.find({ userId: user._id });
+    if (!result) {
+      return "No Transaction Found for this user";
+    }
+    return result;
+  } else {
+    return "No user found with this email";
+  }
+};
+
 module.exports = {
   createUser,
   returnAllUsers,
@@ -123,4 +169,7 @@ module.exports = {
   addFoodToMyCart,
   getMyCartInfo,
   clearCart,
+  createPaymentService,
+  getAPaymentService,
+  getAllMyPayments,
 };
