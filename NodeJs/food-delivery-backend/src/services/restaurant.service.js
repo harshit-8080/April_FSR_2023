@@ -111,7 +111,9 @@ const getTotalAmountService = async (email) => {
 
   let totalAmount = 0;
   transactions.forEach((item) => {
-    totalAmount += Number(item.amount);
+    if (item.paymentStatus == "COMPLETED") {
+      totalAmount += Number(item.amount);
+    }
   });
 
   return { transactions, totalAmount };
