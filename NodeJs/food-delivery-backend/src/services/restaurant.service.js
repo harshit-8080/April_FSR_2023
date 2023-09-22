@@ -117,6 +117,22 @@ const getTotalAmountService = async (email) => {
   return { transactions, totalAmount };
 };
 
+const markAsCompleted = async (paymentId) => {
+  const transaction = await Transaction.findOne({ _id: paymentId });
+
+  if (!transaction) {
+    return "no transaction found for this paymentId";
+  }
+
+  if (transaction.paymentStatus == "COMPLETED") {
+    return "Payment is already completed";
+  }
+  transaction.paymentStatus = "COMPLETED";
+  await transaction.save();
+
+  return { transaction, result: "Payment is completed now" };
+};
+
 module.exports = {
   createRestaurant,
   checkEmailPassword,
@@ -125,4 +141,5 @@ module.exports = {
   toggleServices,
   addFoodToRestaurant,
   getTotalAmountService,
+  markAsCompleted,
 };

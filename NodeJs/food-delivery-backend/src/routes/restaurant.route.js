@@ -7,6 +7,7 @@ const {
   updateServices,
   addFood,
   getTotalAmounts,
+  markPaymentComplete,
 } = require("../controllers/restaurant.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -30,6 +31,14 @@ RestaurantRouter.patch("/restaurants/services", authToken, updateServices);
 // add fodds
 RestaurantRouter.post("/restaurants/foods", authToken, addFood);
 
+// Get Total Amounts
 RestaurantRouter.get("/restaurant/totalAmounts", authToken, getTotalAmounts);
+
+//TODO: IDEALLY -> DELIVERY BOY SHOULD MARK PAYMENT AS COMPLETED FOR COD
+RestaurantRouter.get(
+  "/complete/payment/:paymentId",
+  authToken,
+  markPaymentComplete
+);
 
 module.exports = RestaurantRouter;
