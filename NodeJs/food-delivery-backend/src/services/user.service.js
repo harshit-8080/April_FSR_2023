@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const Food = require("../models/food.model");
+const Restaurant = require("../models/restaurant.model");
 const {
   generateSalt,
   hashPassword,
@@ -68,6 +69,13 @@ const addFoodToMyCart = async (email, foodId, unit) => {
   const user = await User.findOne({ email: email });
   if (user && user.verified) {
     const food = await Food.findOne({ _id: foodId });
+
+    const res = await Restaurant.findOne({ _id: food.restaurantId });
+
+    if (!res.serviceAvailable) {
+      return "Cannot Add food because restaurant is not available";
+    }
+
     if (!food) {
       return "No Food Found with this Food ID";
     }
