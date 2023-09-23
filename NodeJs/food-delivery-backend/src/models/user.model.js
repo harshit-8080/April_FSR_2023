@@ -28,6 +28,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    verified: {
+      type: Boolean,
+      required: true,
+    },
+    otp: {
+      type: Number,
+      required: true,
+    },
+    otp_expiry: {
+      type: Date,
+      required: true,
+    },
     carts: [
       {
         food: { type: mongoose.SchemaTypes.ObjectId, ref: "Food" },

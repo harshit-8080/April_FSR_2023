@@ -12,6 +12,7 @@ const {
   getAllPayment,
   createOrder,
   getOrders,
+  verifyUser
 } = require("../controllers/user.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -67,5 +68,7 @@ UserRouter.post("/orders", authToken, createOrder);
 
 // get all order
 UserRouter.get("/orders", authToken, getOrders);
+
+UserRouter.post("/verify/otp", authToken, verifyUser);
 
 module.exports = UserRouter;

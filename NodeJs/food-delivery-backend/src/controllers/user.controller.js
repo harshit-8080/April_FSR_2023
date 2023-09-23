@@ -11,6 +11,7 @@ const {
   getAllMyPayments,
   createOrderService,
   getAllMyOrders,
+  verifyMyAccount,
 } = require("../services/user.service");
 
 const signupUser = async (req, res) => {
@@ -157,6 +158,19 @@ const getOrders = async (req, res) => {
   }
 };
 
+const verifyUser = async (req, res) => {
+  try {
+    const email = req.email;
+    const otp = req.body.otp;
+
+    const response = await verifyMyAccount(email, otp);
+    return res.json({ message: response });
+  } catch (error) {
+    console.log(error);
+    return res.json({ Error: error });
+  }
+};
+
 module.exports = {
   signupUser,
   getAllUsers,
@@ -170,4 +184,5 @@ module.exports = {
   getAllPayment,
   createOrder,
   getOrders,
+  verifyUser,
 };

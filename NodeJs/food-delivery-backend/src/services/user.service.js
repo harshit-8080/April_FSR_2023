@@ -8,6 +8,7 @@ const {
 const { createToken } = require("../utils/tokenHelper");
 const Transaction = require("../models/transaction.model");
 const Order = require("../models/order.model");
+const { generateOTP, expiry_time, sendOTP } = require("../utils/otpHelper");
 
 const createUser = async (body) => {
   const user = {
@@ -16,15 +17,20 @@ const createUser = async (body) => {
     email: body.email,
     address: body.address,
     phone: body.phone,
+    verified: "false",
+    otp: generateOTP(),
+    otp_expiry: expiry_time(),
   };
 
   const salt = generateSalt();
   user.password = hashPassword(body.password, salt); // Storing hashed password...
 
   const result = await User.create(user);
-  const token = createToken(user.email, user.firstName);
 
-  return { result: result, token: token };
+  // sending OTP to Your Phone Number
+  await sendOTP(user.otp, user.phone);
+
+  return { result, msg: "OTP sent to your phone number" };
 };
 
 const returnAllUsers = async () => {
@@ -60,7 +66,7 @@ const userByEmail = async (email) => {
 
 const addFoodToMyCart = async (email, foodId, unit) => {
   const user = await User.findOne({ email: email });
-  if (user) {
+  if (user && user.verified) {
     const food = await Food.findOne({ _id: foodId });
     if (!food) {
       return "No Food Found with this Food ID";
@@ -120,7 +126,7 @@ const clearCart = async (email) => {
 const createPaymentService = async (email, body) => {
   const user = await User.findOne({ email: email });
 
-  if (user) {
+  if (user && user.verified) {
     const transaction = {
       userId: user._id,
       restaurantId: body.restaurantId,
@@ -165,7 +171,7 @@ const getAllMyPayments = async (email) => {
 const createOrderService = async (email, body) => {
   const user = await User.findOne({ email: email });
 
-  if (!user) {
+  if (!user || !user.verified) {
     return "No user found with this email";
   }
 
@@ -207,6 +213,33 @@ const getAllMyOrders = async (email) => {
   return user;
 };
 
+const verifyMyAccount = async (email, otp) => {
+  const user = await User.findOne({ email: email });
+
+  if (!user) {
+    return "No user found with this email";
+  }
+  if (user.verified) {
+    return "Your Account is already verified";
+  }
+
+  if (new Date() > user.otp_expiry) {
+    user.otp = generateOTP();
+    user.otp_expiry = expiry_time();
+    await user.save();
+    await sendOTP(user.otp, user.phone);
+
+    return "Your OTP is Expired, Sent new OTP on your contact number";
+  } else if (user.otp == Number(otp)) {
+    user.verified = true;
+    await user.save();
+  } else {
+    return "OTP is wrong, Try it with correct OTP";
+  }
+
+  return user;
+};
+
 module.exports = {
   createUser,
   returnAllUsers,
@@ -220,4 +253,5 @@ module.exports = {
   getAllMyPayments,
   createOrderService,
   getAllMyOrders,
+  verifyMyAccount,
 };
