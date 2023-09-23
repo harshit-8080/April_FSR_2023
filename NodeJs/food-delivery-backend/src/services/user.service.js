@@ -223,6 +223,12 @@ const createOrderService = async (email, body) => {
 
   // const restaurant = await Restaurant.findOne({ _id: body.restaurantId });
   // await sendMailToRestaurant(restaurant.phone, user.firstName, user.address);
+  // await mailConfig.sendMail({
+  //   from: process.env.Email,
+  //   to: restaurant.email,
+  //   subject: "New Order Booked for Your Restaurant",
+  //   text: `Order Details are -> ,Total Amount Paid - ${totalAmount}`,
+  // });
 
   return { result, mailStatus: "Mail Sent Successfully" };
 };
