@@ -52,5 +52,5 @@ module.exports = {
   generateOTP,
   expiry_time,
   sendOTP,
-  sendMailToRestaurant,
+  // sendMailToRestaurant,
 };

@@ -15,6 +15,7 @@ const {
   sendOTP,
   sendMailToRestaurant,
 } = require("../utils/otpHelper");
+const mailConfig = require("../config/mail.config");
 
 const createUser = async (body) => {
   const user = {
@@ -213,10 +214,17 @@ const createOrderService = async (email, body) => {
   user.orders.push(result);
   await user.save();
 
+  await mailConfig.sendMail({
+    from: process.env.Email,
+    to: user.email,
+    subject: "Order Placed Successfully",
+    text: `Your Order is Booked Successfully, Total Amount Paid - ${totalAmount}`,
+  });
+
   // const restaurant = await Restaurant.findOne({ _id: body.restaurantId });
   // await sendMailToRestaurant(restaurant.phone, user.firstName, user.address);
 
-  return result;
+  return { result, mailStatus: "Mail Sent Successfully" };
 };
 
 const getAllMyOrders = async (email) => {
