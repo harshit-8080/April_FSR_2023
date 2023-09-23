@@ -12,7 +12,7 @@ const {
   getAllPayment,
   createOrder,
   getOrders,
-  verifyUser
+  verifyUser,
 } = require("../controllers/user.controller");
 const authToken = require("../middlewares/auth-token");
 
@@ -63,12 +63,13 @@ UserRouter.get("/payment/:paymentId", authToken, getAPayment);
 // Get all my  payments or transactions
 UserRouter.get("/payments", authToken, getAllPayment);
 
-// create a order
+// create a Order
 UserRouter.post("/orders", authToken, createOrder);
 
-// get all order
+// get all Order
 UserRouter.get("/orders", authToken, getOrders);
 
+// Verify The Order.
 UserRouter.post("/verify/otp", authToken, verifyUser);
 
 module.exports = UserRouter;

@@ -9,7 +9,12 @@ const {
 const { createToken } = require("../utils/tokenHelper");
 const Transaction = require("../models/transaction.model");
 const Order = require("../models/order.model");
-const { generateOTP, expiry_time, sendOTP } = require("../utils/otpHelper");
+const {
+  generateOTP,
+  expiry_time,
+  sendOTP,
+  sendMailToRestaurant,
+} = require("../utils/otpHelper");
 
 const createUser = async (body) => {
   const user = {
@@ -207,6 +212,9 @@ const createOrderService = async (email, body) => {
   const result = await Order.create(order);
   user.orders.push(result);
   await user.save();
+
+  // const restaurant = await Restaurant.findOne({ _id: body.restaurantId });
+  // await sendMailToRestaurant(restaurant.phone, user.firstName, user.address);
 
   return result;
 };
