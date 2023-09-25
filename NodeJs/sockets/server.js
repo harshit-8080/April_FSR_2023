@@ -1,21 +1,27 @@
+const { Socket } = require("dgram");
 const express = require("express");
-const axios = require("axios");
+const http = require("http");
 
 const app = express();
+const server = http.createServer(app);
 
-// Set EJS AS THE TEMPLATE ENGINE
 app.set("view engine", "ejs");
-
-app.get("/posts", async (req, res) => {
-  let url = "https://jsonplaceholder.typicode.com/posts";
-  const response = await axios.get(url);
-  const data = response.data.slice(0, 5);
-
-  console.log(data);
-
-  res.render("post", { data });
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
-app.listen(3000, () => {
+const { Server } = require("socket.io"); // SOCKET SERVER
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+  socket.on("msgSent", (data) => {
+    io.emit("msg_rcvd", {
+      msg: data.msg,
+      userName: data.userName,
+    });
+  });
+});
+
+server.listen(3000, () => {
   console.log("server listening on port 3000");
 });

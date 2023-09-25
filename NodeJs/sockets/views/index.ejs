@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Group Chat Application</h1>
+
+    <div class="container">
+
+        <input type="text" id="inputName" placeholder="Your UserName....">
+        <input type="text" id="inputMsg" placeholder="Your Message.....">
+        <button id="btn">SEND</button>
+
+        <ul id="msgList"></ul>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        let btn = document.getElementById("btn");
+        let inputMsg = document.getElementById("inputMsg");
+        let inputName = document.getElementById("inputName");
+        let msgList = document.getElementById("msgList");
+
+        var socket = io();
+        btn.onclick = function sendData() {
+            if (inputMsg.value) {
+                socket.emit("msgSent", { userName: inputName.value, msg: inputMsg.value })
+            }
+        }
+
+        socket.on("msg_rcvd",(data)=>{
+            let limsg = document.createElement("li");
+            limsg.innerText = data.userName + " : " + data.msg
+            msgList.appendChild(limsg)
+        })
+    </script>
+</body>
+
+</html>
