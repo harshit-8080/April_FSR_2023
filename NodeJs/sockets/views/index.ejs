@@ -12,11 +12,17 @@
 
     <div class="container">
 
+        <h3> You Are Connected to Group - <%= roomId %></h3>
+        <br><br>
         <input type="text" id="inputName" placeholder="Your UserName....">
         <input type="text" id="inputMsg" placeholder="Your Message.....">
         <button id="btn">SEND</button>
 
-        <ul id="msgList"></ul>
+        <ul id="msgList">
+            <% for(let i = 0; i<chats.length; i++) {%>
+                <li> <%= chats[i].user + " : " + chats[i].message %> </li>
+            <% } %>
+        </ul>
 
     </div>
 
@@ -29,9 +35,19 @@
         let msgList = document.getElementById("msgList");
 
         var socket = io();
+
+        // WANT TO JOIN THIS ROOM
+        socket.emit("join_room", {
+            roomId:'<%= roomId %>'
+        })
+
         btn.onclick = function sendData() {
             if (inputMsg.value) {
-                socket.emit("msgSent", { userName: inputName.value, msg: inputMsg.value })
+                socket.emit("msgSent", { 
+                    userName: inputName.value, 
+                    msg: inputMsg.value, 
+                    roomId:'<%= roomId %>' 
+                })
             }
         }
 
